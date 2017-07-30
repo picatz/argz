@@ -1,3 +1,4 @@
+require "./argz/dsl"
 require "./argz/*"
 
 module Argz

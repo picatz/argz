@@ -11,7 +11,5 @@ module Argz
       with self yield self
       return self
     end
-    
-    
   end
 end
