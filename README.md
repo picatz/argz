@@ -1,6 +1,6 @@
-# 🐉  ARGZ
+# 🐲  Argz
 
-Command-line argument library for Crystal.
+Command-line application library for Crystal.
 
 ## Installation
 
