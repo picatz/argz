@@ -26,11 +26,22 @@ Argz::App.build do
     # Details
     summary     "This option is much simpler."
     description "Notice how it is neither required, nor has a default."
+    example "Basic" do
+      "--one-more"
+    end
   end
 
 end
 
-Argz::App.run!
+#Argz::App.run!
+
+Argz::App.commands do |command|
+  next if command.examples.empty?
+  command.examples do |title, cmd|
+    puts title
+    puts cmd
+  end
+end
 
 #Argz::App.commands do |command|
 #  puts command.long?

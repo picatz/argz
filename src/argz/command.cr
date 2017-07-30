@@ -17,9 +17,23 @@ module Argz
       @long        = String
       @required    = false
       @default     = false
-      @examples    = [] of String
+      @examples    = {} of String => String
+    end
+
+    def example(name : String, &block : Proc(String))
+      @examples[name] = block.call
+    end
+
+    def examples
+      @examples
     end
     
+    def examples
+      @examples.each do |name, command|
+        yield name, command
+      end
+    end
+
     def to_h
       { "name": @name,
         "short": @short,
