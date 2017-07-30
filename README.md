@@ -28,7 +28,7 @@ Argz::App.build do
   command "Example", required: true, default: "Yay!" do
     short "-e"
     long  "--example"
-    summary     "Required option with default."
+    summary     "Required option with a default."
     description "Sometimes options needed to be both required and have a default."
   end
   command "One More Example" do
@@ -40,6 +40,16 @@ Argz::App.build do
 end
 
 Argz::App.run!
+```
+
+###### Will Output
+
+```shell
+app
+Version: 1.0.0
+Usage: app.cr [Options]
+  -e            --example   Required option with a default.         default:Yay!
+  -1me --one-more-example   This option is just one more for fun.
 ```
 
 #### Each Argument
