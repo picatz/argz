@@ -37,6 +37,10 @@ module Argz
         yield argument
       end
     end
+    
+    def self.empty?
+      ARGV.empty?
+    end
 
     # Detect if there are any arguments. Sometimes you don't have any to mess with.
     def self.any?

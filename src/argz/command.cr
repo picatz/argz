@@ -41,6 +41,10 @@ module Argz
       false
     end
     
+    def default
+      @default
+    end
+    
     def required?
       @required
     end
@@ -57,7 +61,6 @@ module Argz
       @name = str
     end
     
-    
     def name
       @name
     end
@@ -66,11 +69,23 @@ module Argz
       @description = str
     end
     
+    def desc(str : String)
+      @description = str
+    end
+    
     def description 
+      @description
+    end
+    
+    def desc
       @description
     end
 
     def summary(str : String)
+      @summary = str
+    end 
+    
+    def smry(str : String)
       @summary = str
     end 
     
@@ -82,13 +97,35 @@ module Argz
       @short = str
     end 
     
+    def shrt(str : String)
+      @short = str
+    end 
+    
     def short
       @short
     end 
     
+    def short?
+      return true if @short
+      false
+    end 
+    
+    def shrt
+      @short
+    end
+
     def long(str : String)
       @long = str
     end 
+    
+    def long
+      @long
+    end 
+
+    def long?
+      return true if @long
+      false
+    end
 
   end
 end

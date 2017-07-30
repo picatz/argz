@@ -1,26 +1,40 @@
 require "../src/argz"
 
+# Let's build an example command-line application with Argz!
 Argz::App.build do 
-  name        "Example Application"
+  # Application Metadata
+  name    "Example Application"
+  version "1.0.0"
+  
+  # Application Details 
   summary     "I wanted to build an example!"
   description "Example command-line application built with Argz..."
-  command "Example" do
+  
+  # First Example 
+  command "Example", required: true, default: "yay" do
+    # Flags 
     short "-e"
-    long  "--example"
-    description "Example required option, with a default."
-    required
-    default "yay" 
+    # Details
+    summary     "Example required option, with a default."
+    description "Notice how you can use the shorter ways of doing this?"
   end
+ 
+  # Second Example 
   command "One More Example" do
-    short "-1me"
-    long  "--one-more-example"
-    description "Example of a non-required option, without a default."
+    # Flags 
+    long  "--one-more"
+    # Details
+    summary     "This option is much simpler."
+    description "Notice how it is neither required, nor has a default."
   end
+
 end
 
-Argz::App.commands do |command|
-  puts command.name
-  puts command.short
-  puts command.required?
-  puts command.default?
-end
+Argz::App.run!
+
+#Argz::App.commands do |command|
+#  puts command.long?
+#end
+
+
+#Argz::App.run!
