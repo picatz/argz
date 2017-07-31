@@ -12,20 +12,16 @@ Argz::App.build do
   
   # First Example 
   command "Example", required: true, default: "yay" do
-    # Flags 
     short "-e"
-    # Details
     summary     "Example required option, with a default."
     description "Notice how you can use the shorter ways of doing this?"
   end
  
   # Second Example 
   command "One More Example" do
-    # Flags 
     long  "--one-more"
-    # Details
     summary     "This option is much simpler."
-    description "Notice how it is neither required, nor has a default."
+    description "Notice how it is not required and has no default argument."
     example "Basic" do
       "--one-more"
     end
@@ -36,28 +32,4 @@ Argz::App.build do
 
 end
 
-#Argz::App.run!
-
-#Argz::App.commands do |command|
-#  next if command.examples.empty?
-#  command.examples do |title, cmd|
-#    puts title
-#    puts cmd
-#  end
-#end
-
-#Argz::App.commands do |command|
-#  puts command.long?
-#end
-
-
-Argz::Raw.add("--one-more")
 Argz::App.run!
-
-
-#Argz::App.commands do |command|
-#  next unless command.used?
-#  while command.actions?
-#    command.run!
-#  end
-#end

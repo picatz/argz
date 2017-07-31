@@ -18,6 +18,31 @@ module Argz
       @required    = false
       @default     = false
       @examples    = {} of String => String
+      @blocks      = Array(Proc(String | Bool | Nil)).new
+    end
+
+    # Check if the command has been used.
+    def used?
+      return true if Argz::Raw.all.includes?(@short)
+      return true if Argz::Raw.all.includes?(@long)
+      false
+    end
+
+    def action(&block : Proc(String | Bool | Nil))
+      @blocks << block
+    end
+
+    def run!
+      next_action.call
+    end    
+    
+    def actions?
+      return true unless @blocks.empty?
+      false
+    end
+
+    def next_action
+      @blocks.shift
     end
 
     def example(name : String, &block : Proc(String))

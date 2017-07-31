@@ -18,31 +18,27 @@ dependencies:
 require "argz"
 ```
 
-### Example Application
+### Hello World Application
 
 ```crystal
 Argz::App.build do 
-  name        "Example Application"
-  summary     "I wanted to build an example!"
-  description "Example command-line application built with Argz..."
-  command "Example", required: true, default: "Yay!" do
-    short "-e"
-    long  "--example"
-    summary     "Required option with a default."
-    description "Sometimes options needed to be both required and have a default."
-  end
-  command "One More Example" do
-    short "-1me"
-    long  "--one-more-example"
-    summary     "This option is just one more for fun."
-    description "Example of a non-required option, without a default."
+  name    "Example Application"
+  version "1.0.0"
+  
+  command "Example" do
+    long    "--hello-world"
+    summary "Basic hello world command-line option."
+    
+		action do
+      puts "Hello World!"
+    end
   end
 end
 
 Argz::App.run!
 ```
 
-###### Will Output
+###### Default / Help Output
 
 ```shell
 app
