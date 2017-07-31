@@ -24,12 +24,12 @@ require "argz"
 Argz::App.build do 
   name    "Example Application"
   version "1.0.0"
-  
+
   command "Example" do
     long    "--hello-world"
     summary "Basic hello world command-line option."
-    
-		action do
+
+    action do
       puts "Hello World!"
     end
   end
@@ -41,11 +41,12 @@ Argz::App.run!
 ###### Default / Help Output
 
 ```shell
-app
+Hello World
 Version: 1.0.0
 Usage: app.cr [Options]
-  -e            --example   Required option with a default.         default:Yay!
-  -1me --one-more-example   This option is just one more for fun.
+   --hello-world 	Basic hello world command-line option.
+-h        --help 	Print out this help menu. 
+
 ```
 
 #### Each Argument
